@@ -1,3 +1,6 @@
+import os
+
+
 def cadastrar_carta():
     print("\n===== Cadastro de Cartas =====")
     nome = input("Nome da carta: ").strip()
@@ -24,7 +27,11 @@ def cadastrar_carta():
 
 
 def listar_cartas():
-    pass
+    print("\n=== Cartas Cadastradas ===")
+    for arquivo in os.listdir():
+        if arquivo.endswith(".txt"):
+            print(f"- {arquivo}")
+    print()
 
 def menu():
     while True:
