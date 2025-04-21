@@ -1,5 +1,27 @@
 def cadastrar_carta():
-    pass
+    print("\n===== Cadastro de Cartas =====")
+    nome = input("Nome da carta: ").strip()
+    tipo = input("Tipo: ").strip()
+    ataque = input("Ataque: ").strip()
+    defesa = input("Defesa: ").strip()
+    descricao = input("Descrição: ").strip()
+
+    conteudo = f"""
+    Nome: {nome}
+    Tipo: {tipo}
+    Ataque: {ataque}
+    Defesa: {defesa}
+    Descrição: {descricao}
+    """
+
+    nome_arquivo = f"{nome}.txt"
+    nome_arquivo = "".join(c for c in nome_arquivo if c.isalnum() or c in (' ', '-', '_')).rstrip()
+
+    with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
+        arquivo.write(conteudo.strip())
+
+    print(f"\n[Carta salva como {nome_arquivo}]\n")
+
 
 def listar_cartas():
     pass
