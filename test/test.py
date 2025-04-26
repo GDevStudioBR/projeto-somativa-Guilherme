@@ -32,3 +32,4 @@ def test_apagar_todas_as_cartas():
     with patch("builtins.input", return_value="s"):
         apagar_todas_as_cartas()
     assert os.listdir(PASTA_CARTAS) == []
+print('boa noite')
