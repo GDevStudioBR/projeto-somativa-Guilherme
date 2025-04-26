@@ -34,7 +34,6 @@ def cadastrar_carta():
 
     print(f"\n[Carta salva como {nome_arquivo}]\n")
 
-
 # Função para listar todas as cartas salvas
 def listar_cartas():
     print("\n=== Cartas Cadastradas ===")
@@ -59,8 +58,14 @@ def apagar_todas_as_cartas():
     else:
         print("\n[Operação cancelada. Nenhuma carta foi apagada.]\n")
 
-# Função principal de menu interativo.
-# Exibe as opções disponíveis e chama a função correspondente com base na escolha do usuário.
+# NOVA FUNÇÃO para contar as cartas
+def contar_cartas():
+    arquivos = os.listdir(PASTA_CARTAS)
+    quantidade = sum(1 for arquivo in arquivos if arquivo.endswith(".txt"))
+    print(f"\n[Existem {quantidade} carta(s) cadastrada(s).]\n")
+    return quantidade
+
+# Função principal de menu interativo
 def menu():
     while True:
         print("=== Menu ===")
@@ -68,6 +73,7 @@ def menu():
         print("2. Listar cartas")
         print("3. Apagar todas as cartas")
         print("4. Sair")
+        print("5. Contar cartas")  # <-- nova opção
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -79,10 +85,11 @@ def menu():
         elif opcao == "4":
             print("Saindo...")
             break
+        elif opcao == "5":
+            contar_cartas()
         else:
             print("Opção inválida.\n")
 
-# Este bloco garante que o menu só será executado se o arquivo for rodado diretamente.
-# Se o script for importado em outro projeto, o menu não será executado automaticamente.
+# Executa o menu se rodar o arquivo diretamente
 if __name__ == "__main__":
     menu()
