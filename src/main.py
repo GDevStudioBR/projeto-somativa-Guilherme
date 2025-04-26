@@ -7,7 +7,7 @@ PASTA_CARTAS = "cartas"
 # Garante que a pasta "cartas" existe
 if not os.path.exists(PASTA_CARTAS):
     os.makedirs(PASTA_CARTAS)
-print('oi')
+
 # Função para cadastrar uma nova carta e salvar em arquivo .txt
 def cadastrar_carta():
     print("\n===== Cadastro de Cartas =====")
