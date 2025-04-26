@@ -5,7 +5,6 @@ from unittest.mock import patch
 
 from src.main import *
 
-
 PASTA_CARTAS = "cartas"
 
 @pytest.fixture(autouse=True)
@@ -32,4 +31,10 @@ def test_apagar_todas_as_cartas():
     with patch("builtins.input", return_value="s"):
         apagar_todas_as_cartas()
     assert os.listdir(PASTA_CARTAS) == []
-print('boa noite')
+
+def test_contar_cartas():
+    # Cria duas cartas manualmente
+    open(os.path.join(PASTA_CARTAS, "Carta1.txt"), "w").close()
+    open(os.path.join(PASTA_CARTAS, "Carta2.txt"), "w").close()
+    quantidade = contar_cartas()
+    assert quantidade == 2
